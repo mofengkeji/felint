@@ -1,6 +1,6 @@
 module.exports = {
-  title: 'Hello VuePress',
-  description: 'Just playing around',
+  title: '墨锋科技',
+  description: 'smart coding',
   themeConfig: {
     displayAllHeaders: true,
     sidebarDepth: 3,
@@ -9,7 +9,7 @@ module.exports = {
         title: 'Vue',
         collapsable: false,
         sidebarDepth: 3,
-        children: ['/vue/basic', '/vue/vuex']
+        children: ['/vue', '/vue/vuex']
       }
     ]
   }

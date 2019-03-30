@@ -1,5 +1,0 @@
-# Reactive
-
-## vuex
-
-## vue-router

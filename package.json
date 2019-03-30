@@ -2,6 +2,7 @@
   "name": "felint",
   "version": "0.0.1",
   "description": "felint",
+  "license": "Apache-2.0",
   "main": "index.js",
   "scripts": {
     "dev": "vuepress dev docs",
