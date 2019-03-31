@@ -1,4 +1,5 @@
 module.exports = {
+  base: '/felint/',
   title: '墨锋科技',
   description: 'smart coding',
   themeConfig: {
@@ -13,10 +14,10 @@ module.exports = {
       },
       {
         title: 'Vue',
-        path: '/vue',
+        path: '/vue/',
         collapsable: false,
         sidebarDepth: 3,
-        children: ['/vue', '/vue/vuex']
+        children: ['/vue/', '/vue/vuex']
       }
     ]
   }
