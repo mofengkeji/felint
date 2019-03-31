@@ -2,6 +2,7 @@
 墨锋科技前端规范
 
 ## 开发
+```bash
 # clone the project
 git clone https://github.com/mofengkeji/felint.git
 
@@ -10,6 +11,7 @@ npm install
 
 # develop
 npm run dev
+```
 
 ## 如何贡献
 
