@@ -2,6 +2,7 @@
 
 ## 目录结构
 
+- 整体目录结构标准
 ```bash
 ├── build                      // 构建相关
 ├── config                     // 配置相关
@@ -32,6 +33,36 @@
 ├── favicon.ico                // favicon图标
 ├── index.html                 // html模板
 └── package.json               // package.json
+```
+
+- views层目录结构标准
+
+按`页面结构`划分视图层
+
+```bash
+├── views                      // 视图层
+│   ├── home                   // 首页模块
+│   │   ├── components         // 首页模块组件
+│   │   └── home.vue           // home页面
+│   ├── shop                   // 商城模块
+│   │   ├── components         // 商品模块组件
+│   │   ├── goodsDetails.vue   // 商品详情页
+│   │   └── goodsList.vue      // 商品列表页
+│   └── user                   // 我的模块
+```
+- api目录结构标准
+
+按`业务模型`模块划分model层
+
+```bash
+├── api                        // model层
+│   ├── goods.vue              // 商品model
+│   ├── user.vue               // 用户model
+│   ├── activity.vue           // 活动model
+│   ├── topic                  // 可以文件夹包裹一个大版块model
+│   │   ├── topic.vue          // 帖子model
+│   │   └── topicComment.vue   // 帖子评论model
+│   └── auth.vue               // 认证model（包含登录、注册等api）
 ```
 
 ## 零散的规范
