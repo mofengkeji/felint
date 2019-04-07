@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vuex | 墨锋科技</title>
+    <meta name="description" content="smart coding">
+    
+    
+    <link rel="preload" href="/felint/assets/css/0.styles.6af0f4aa.css" as="style"><link rel="preload" href="/felint/assets/js/app.4e66a2ba.js" as="script"><link rel="preload" href="/felint/assets/js/2.a3874d6f.js" as="script"><link rel="preload" href="/felint/assets/js/7.353c9e53.js" as="script"><link rel="prefetch" href="/felint/assets/js/3.f814791e.js"><link rel="prefetch" href="/felint/assets/js/4.319011cd.js"><link rel="prefetch" href="/felint/assets/js/5.d913f538.js"><link rel="prefetch" href="/felint/assets/js/6.29773f94.js"><link rel="prefetch" href="/felint/assets/js/8.45002ef2.js">
+    <link rel="stylesheet" href="/felint/assets/css/0.styles.6af0f4aa.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/felint/" class="home-link router-link-active"><!----> <span class="site-name">墨锋科技</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><a href="/felint/" class="sidebar-link">Lint</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/felint/#commit-msg" class="sidebar-link">commit msg</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/felint/#why" class="sidebar-link">Why</a></li><li class="sidebar-sub-header"><a href="/felint/#angular规范" class="sidebar-link">Angular规范</a></li><li class="sidebar-sub-header"><a href="/felint/#配套工具" class="sidebar-link">配套工具</a></li></ul></li><li class="sidebar-sub-header"><a href="/felint/#eslint" class="sidebar-link">eslint</a></li></ul></li><li><section class="sidebar-group depth-0"><a href="/felint/vue/" class="sidebar-heading clickable router-link-active open"><span>Vue</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/felint/vue/" class="sidebar-link">vue</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/felint/vue/#目录结构" class="sidebar-link">目录结构</a></li><li class="sidebar-sub-header"><a href="/felint/vue/#零散的规范" class="sidebar-link">零散的规范</a></li></ul></li><li><a href="/felint/vue/vuex.html" class="active sidebar-link">vuex</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="content default"><h1 id="vuex"><a href="#vuex" aria-hidden="true" class="header-anchor">#</a> vuex</h1> <ul><li><p>store当中不得含有视图层的操作</p></li> <li><p>mutation命名必须以<code>SET_</code>开头，一个sate的最好只对应一个mutation，并以state的UPPER_SNAKE_CASE结尾</p></li></ul> <p>反例：</p> <div class="language-js extra-class"><pre class="language-js"><code>mutations<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">authInfo</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      state<span class="token punctuation">.</span>token <span class="token operator">=</span> data<span class="token punctuation">.</span>token
+      state<span class="token punctuation">.</span>userInfo <span class="token operator">=</span> data<span class="token punctuation">.</span>userInfo
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>    
+</code></pre></div><p>正例：</p> <div class="language-js extra-class"><pre class="language-js"><code>mutations<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token constant">SET_TOKEN</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> token</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      state<span class="token punctuation">.</span>token <span class="token operator">=</span> token
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token constant">SET_USER_INFO</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> userInfo</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      state<span class="token punctuation">.</span>userInfo <span class="token operator">=</span> userInfo
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>action必须以驼峰命名，且首字母大写，并且最好都声明为<code>async function</code></li></ul> <div class="language-js extra-class"><pre class="language-js"><code>actions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token keyword">async</span> <span class="token function">GetUserInfo</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> commit<span class="token punctuation">,</span> state <span class="token punctuation">}</span><span class="token punctuation">,</span> params</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">await</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        api<span class="token punctuation">.</span>center<span class="token punctuation">.</span><span class="token function">getUserInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'SET_USER_INFO'</span><span class="token punctuation">,</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>data<span class="token punctuation">)</span>
+          <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">async</span> <span class="token function">SetToken</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> commit<span class="token punctuation">,</span> state <span class="token punctuation">}</span><span class="token punctuation">,</span> params</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      localStorage<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span><span class="token string">'token'</span><span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>params<span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'SET_TOKEN'</span><span class="token punctuation">,</span> params<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">async</span> <span class="token function">LogOut</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> commit<span class="token punctuation">,</span> state <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      localStorage<span class="token punctuation">.</span><span class="token function">removeItem</span><span class="token punctuation">(</span><span class="token string">'token'</span><span class="token punctuation">)</span>
+      <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'SET_USER_INFO'</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+      <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'SET_TOKEN'</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/felint/vue/" class="prev router-link-active">
+          vue
+        </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/felint/assets/js/app.4e66a2ba.js" defer></script><script src="/felint/assets/js/2.a3874d6f.js" defer></script><script src="/felint/assets/js/7.353c9e53.js" defer></script>
+  </body>
+</html>

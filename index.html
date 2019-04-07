@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Lint | 墨锋科技</title>
+    <meta name="description" content="smart coding">
+    
+    
+    <link rel="preload" href="/felint/assets/css/0.styles.6af0f4aa.css" as="style"><link rel="preload" href="/felint/assets/js/app.4e66a2ba.js" as="script"><link rel="preload" href="/felint/assets/js/2.a3874d6f.js" as="script"><link rel="preload" href="/felint/assets/js/5.d913f538.js" as="script"><link rel="prefetch" href="/felint/assets/js/3.f814791e.js"><link rel="prefetch" href="/felint/assets/js/4.319011cd.js"><link rel="prefetch" href="/felint/assets/js/6.29773f94.js"><link rel="prefetch" href="/felint/assets/js/7.353c9e53.js"><link rel="prefetch" href="/felint/assets/js/8.45002ef2.js">
+    <link rel="stylesheet" href="/felint/assets/css/0.styles.6af0f4aa.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/felint/" class="home-link router-link-exact-active router-link-active"><!----> <span class="site-name">墨锋科技</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><a href="/felint/" class="active sidebar-link">Lint</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/felint/#commit-msg" class="sidebar-link">commit msg</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/felint/#why" class="sidebar-link">Why</a></li><li class="sidebar-sub-header"><a href="/felint/#angular规范" class="sidebar-link">Angular规范</a></li><li class="sidebar-sub-header"><a href="/felint/#配套工具" class="sidebar-link">配套工具</a></li></ul></li><li class="sidebar-sub-header"><a href="/felint/#eslint" class="sidebar-link">eslint</a></li></ul></li><li><section class="sidebar-group depth-0"><a href="/felint/vue/" class="sidebar-heading clickable"><span>Vue</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/felint/vue/" class="sidebar-link">vue</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/felint/vue/#目录结构" class="sidebar-link">目录结构</a></li><li class="sidebar-sub-header"><a href="/felint/vue/#零散的规范" class="sidebar-link">零散的规范</a></li></ul></li><li><a href="/felint/vue/vuex.html" class="sidebar-link">vuex</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="content default"><h1 id="lint"><a href="#lint" aria-hidden="true" class="header-anchor">#</a> Lint</h1> <h2 id="commit-msg"><a href="#commit-msg" aria-hidden="true" class="header-anchor">#</a> commit msg</h2> <h3 id="why"><a href="#why" aria-hidden="true" class="header-anchor">#</a> Why</h3> <p>我们不允许无意义、混乱的msg，类似于 <code>git commit -m '123'</code>，这会让提交历史惨不忍睹，也不利于浏览改动历史，不利于意会每一次的改动意图或者内容。而规范的commit msg可以让我们获得很多好处：</p> <ol><li>提供更多的历史信息，方便快速浏览。</li></ol> <p>下面是一个遵循了一定规范的例子（格式还是有点问题）</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">git</span> log HEAD --pretty<span class="token operator">=</span>format:%s <span class="token comment"># 漂亮地打印出提交历史</span>
+
+fix: 选择银行样式更改
+fix: 选择银行页面被之前的滚动穿透代码影响，把选择银行中有滚动穿透的代码去掉（选择年月的滚动穿透代码未删除）
+fix 去掉路由进入组件ChooseCard
+fix 银行选择
+feat 新增搜索银行
+fix 海报页面清除setTimeout
+fix 推荐人必填
+fix picker穿透
+fix 跳转到添加银行卡时，遗漏参数
+fix ios穿透问题
+fix 借记卡贷记卡更改
+fix 认证成功跳转
+fix 银行卡
+fix: picker
+fix 注册弹框显示关注二维码
+fix 选择海报页图片懒加载
+fix 收款页面删除按钮样式
+</code></pre></div><ol start="2"><li>可以直接从commit生成Change log。</li></ol> <p>Change Log 是发布新版本时，用来说明与上一个版本差异的文档，用工具自动生成即可</p> <ol start="3"><li>让源码管理更有意义</li></ol> <p>下文我们会说到，我们会将commit msg分为几种类型：新功能、修补bug、文档改动、格式改动、重构、增加测试。当我们接手项目时，通常我们会被指派实现多个需求、修复一大堆bug，很多人习惯全部写完之后一股脑的commit push上去，这种做法实际上反映出了你在代码管理方面极差的控制力。</p> <p>git管理的意义就在于，我们能够恢复糟糕、不稳定的改动，并且结构化地浏览它们，而不是单纯得文件上传。</p> <ol start="4"><li>帮助你写代码时标签化、任务化</li></ol> <p>我们推崇的是，将你的任务划分为上述得几个改动类型，每一次改动完后就提交一次。这能够帮助你清晰地了解到你的任务反映在代码上做了什么类型的改动，并且帮助你更好地了解这次改动可能波及到的范围（我们通常不希望一个功能改动后影响到其他功能）</p> <h3 id="angular规范"><a href="#angular规范" aria-hidden="true" class="header-anchor">#</a> Angular规范</h3> <p>社区有多种 Commit message 的写法规范。而我们遵循Angular规范，这是目前使用最广的写法，比较合理和系统化，并且有配套的工具。</p> <h4 id="格式"><a href="#格式" aria-hidden="true" class="header-anchor">#</a> 格式</h4> <p>每次提交，Commit message 都应该包括三个部分：Header，Body 和 Footer。</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;
+// 空一行
+&lt;body&gt;
+// 空一行
+&lt;footer&gt;
+</code></pre></div><p>其中，Header 是必需的，Body 和 Footer 可以省略。</p> <p><code>type</code>用于说明 commit 的类别，只允许使用下面7个标识。</p> <ul><li>feat：新功能（feature）</li> <li>fix：修补bug</li> <li>docs：文档（documentation）</li> <li>style： 格式（不影响代码运行的变动）</li> <li>refactor：重构（即不是新增功能，也不是修改bug的代码变动）</li> <li>test：增加测试</li> <li>chore：构建过程或辅助工具的变动</li></ul> <p>如果type为feat和fix，则该 commit 将肯定出现在 Change log 之中。</p> <p><code>scope</code>用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，或者用户模块、推广模块、商品模块。</p> <p><code>subject</code>是 commit 目的的简短描述，不超过50个字符。</p> <p><code>body</code>则是详细描述</p> <p>如果当前代码与上一个版本不兼容，则 <code>footer</code> 部分以<code>BREAKING CHANGE</code>开头，后面是对变动的描述、以及变动理由和迁移方法。</p> <h3 id="配套工具"><a href="#配套工具" aria-hidden="true" class="header-anchor">#</a> 配套工具</h3> <ul><li>commitizen</li></ul> <p>用于生成angular规范commit msg</p> <p>全局安装</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> i -g commitizen
+</code></pre></div><p>然后，在项目目录里，运行下面的命令，使其支持 Angular 的 Commit message 格式。</p> <div class="language-bash extra-class"><pre class="language-bash"><code>commitizen init cz-conventional-changelog --save --save-exact
+</code></pre></div><p>以后，凡是用到git commit命令，一律改为使用git cz。这时，就会出现选项，用来生成符合格式的 Commit message。</p> <p><img src="https://github.com/commitizen/cz-cli/raw/master/meta/screenshots/add-commit.png" alt="cz"></p> <ul><li>commitlint, husky</li></ul> <p>husky允许我们在commit前运行命令，commitlint帮助我们检查commit msg</p> <p>安装至dev依赖</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># husky</span>
+<span class="token function">npm</span> i --save-dev husky
+
+<span class="token comment"># commitlint</span>
+<span class="token function">npm</span> <span class="token function">install</span> --save-dev @commitlint/config-conventional @commitlint/cli
+</code></pre></div><p>在根目录添加<code>commitlint.config.js</code>配置文件</p> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token keyword">extends</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'@commitlint/config-conventional'</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>配置commit前要执行的脚本</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// package.json</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;husky&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;hooks&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;commit-msg&quot;</span><span class="token operator">:</span> <span class="token string">&quot;commitlint -E HUSKY_GIT_PARAMS&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>standard-version</li></ul> <p>用于生成changelog，规划版本，当我们需要发布线上版本时，必须执行</p> <p>安装</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> i --save-dev standard-version
+</code></pre></div><p>添加 <code>npm run release</code>脚本，并且在push前执行它</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// package.json</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;release&quot;</span><span class="token operator">:</span> <span class="token string">&quot;standard-version -p angular -i CHANGELOG.md -w&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="eslint"><a href="#eslint" aria-hidden="true" class="header-anchor">#</a> eslint</h2> <p>eslint是一个帮助我们对代码格式进行约束的包</p> <p>只需要在项目安装后，在项目根目录添加规则配置文件 <code>.eslintrc.js</code> ，利用IDE例如VSCode，就可以再保存时自动格式化代码</p> <p>vscode配置片段（其他ide请自行百度）</p> <blockquote><p>File-&gt;Preferences-&gt;Settings-&gt;搜索eslint-&gt;找到Edit in settings.json</p></blockquote> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// settings.json</span>
+<span class="token property">&quot;eslint.autoFixOnSave&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+<span class="token property">&quot;eslint.validate&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">&quot;javascript&quot;</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+        <span class="token property">&quot;language&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vue&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;autoFix&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token string">&quot;html&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;vue&quot;</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span>
+</code></pre></div><p>所有类型的项目必须配置eslint，不然当你发布正式环境时，CI (自动部署工具)会拒绝部署。</p> <blockquote><p>具体安装配置方法请查看<a href="https://github.com/mofengkeji/eslint-config-mofengkeji" target="_blank" rel="noopener noreferrer">共享配置仓库<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></blockquote> <p>配置<code>npm run lint</code>脚本，可以批量格式化代码</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// package.json</span>
+<span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;lint&quot;</span><span class="token operator">:</span> <span class="token string">&quot;eslint --fix --ext .js,.vue src&quot;</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div><p>重新配置husky</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// package.json</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;husky&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;hooks&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;commit-msg&quot;</span><span class="token operator">:</span> <span class="token string">&quot;npm run lint &amp;&amp; commitlint -E HUSKY_GIT_PARAMS&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/felint/vue/">
+          vue
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/felint/assets/js/app.4e66a2ba.js" defer></script><script src="/felint/assets/js/2.a3874d6f.js" defer></script><script src="/felint/assets/js/5.d913f538.js" defer></script>
+  </body>
+</html>

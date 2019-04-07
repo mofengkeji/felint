@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vue | 墨锋科技</title>
+    <meta name="description" content="smart coding">
+    
+    
+    <link rel="preload" href="/felint/assets/css/0.styles.6af0f4aa.css" as="style"><link rel="preload" href="/felint/assets/js/app.4e66a2ba.js" as="script"><link rel="preload" href="/felint/assets/js/2.a3874d6f.js" as="script"><link rel="preload" href="/felint/assets/js/6.29773f94.js" as="script"><link rel="prefetch" href="/felint/assets/js/3.f814791e.js"><link rel="prefetch" href="/felint/assets/js/4.319011cd.js"><link rel="prefetch" href="/felint/assets/js/5.d913f538.js"><link rel="prefetch" href="/felint/assets/js/7.353c9e53.js"><link rel="prefetch" href="/felint/assets/js/8.45002ef2.js">
+    <link rel="stylesheet" href="/felint/assets/css/0.styles.6af0f4aa.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/felint/" class="home-link router-link-active"><!----> <span class="site-name">墨锋科技</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><a href="/felint/" class="sidebar-link">Lint</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/felint/#commit-msg" class="sidebar-link">commit msg</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/felint/#why" class="sidebar-link">Why</a></li><li class="sidebar-sub-header"><a href="/felint/#angular规范" class="sidebar-link">Angular规范</a></li><li class="sidebar-sub-header"><a href="/felint/#配套工具" class="sidebar-link">配套工具</a></li></ul></li><li class="sidebar-sub-header"><a href="/felint/#eslint" class="sidebar-link">eslint</a></li></ul></li><li><section class="sidebar-group depth-0"><a href="/felint/vue/" class="sidebar-heading clickable router-link-exact-active router-link-active open active"><span>Vue</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/felint/vue/" class="active sidebar-link">vue</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/felint/vue/#目录结构" class="sidebar-link">目录结构</a></li><li class="sidebar-sub-header"><a href="/felint/vue/#零散的规范" class="sidebar-link">零散的规范</a></li></ul></li><li><a href="/felint/vue/vuex.html" class="sidebar-link">vuex</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="content default"><h1 id="vue"><a href="#vue" aria-hidden="true" class="header-anchor">#</a> vue</h1> <h2 id="目录结构"><a href="#目录结构" aria-hidden="true" class="header-anchor">#</a> 目录结构</h2> <ul><li>整体目录结构标准</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code>├── build                      // 构建相关
+├── config                     // 配置相关
+├── src                        // 源代码
+│   ├── api                    // 所有请求
+│   ├── assets                 // 主题 字体等静态资源
+│   ├── components             // 全局公用组件
+│   ├── directive              // 全局指令
+│   ├── filters                // 全局 filter
+│   ├── icons                  // 项目所有 svg icons
+│   ├── lang                   // 国际化 language
+│   ├── mock                   // 项目mock 模拟数据
+│   ├── router                 // 路由
+│   ├── store                  // 全局 store管理
+│   ├── styles                 // 全局样式
+│   ├── utils                  // 全局公用方法
+│   ├── vendor                 // 公用vendor
+│   ├── views                  // views 所有页面
+│   ├── App.vue                // 入口页面
+│   ├── main.js                // 入口文件 加载组件 初始化等
+│   └── permission.js          // 权限管理
+├── static                     // 第三方不打包资源、枚举常量
+├── .babelrc                   // babel-loader 配置
+├── .eslintignore               // eslint 忽略项
+├── .eslintrc.js               // eslint 配置项
+├── .gitignore                 // <span class="token function">git</span> 忽略项
+├── .drone.yml                // 自动化CI配置
+├── favicon.ico                // favicon图标
+├── index.html                 // html模板
+└── package.json               // package.json
+</code></pre></div><ul><li>views层目录结构标准</li></ul> <p>按<code>页面结构</code>划分视图层</p> <div class="language-bash extra-class"><pre class="language-bash"><code>├── views                      // 视图层
+│   ├── home                   // 首页模块
+│   │   ├── components         // 首页模块组件
+│   │   └── home.vue           // home页面
+│   ├── shop                   // 商城模块
+│   │   ├── components         // 商品模块组件
+│   │   ├── goodsDetails.vue   // 商品详情页
+│   │   └── goodsList.vue      // 商品列表页
+│   └── user                   // 我的模块
+</code></pre></div><ul><li>api目录结构标准</li></ul> <p>按<code>业务模型</code>模块划分model层</p> <div class="language-bash extra-class"><pre class="language-bash"><code>├── api                        // model层
+│   ├── goods.vue              // 商品model
+│   ├── user.vue               // 用户model
+│   ├── activity.vue           // 活动model
+│   ├── topic                  // 可以文件夹包裹一个大版块model
+│   │   ├── topic.vue          // 帖子model
+│   │   └── topicComment.vue   // 帖子评论model
+│   └── auth.vue               // 认证model（包含登录、注册等api）
+</code></pre></div><h2 id="零散的规范"><a href="#零散的规范" aria-hidden="true" class="header-anchor">#</a> 零散的规范</h2> <p>大多数vue的书写规范会在eslint中规范，这里列举一下没办法用eslint约束的项</p> <ul><li>单文件组件必须保持<code>&lt;script&gt;</code>、<code>&lt;template&gt;</code>、 <code>&lt;style&gt;</code>的书写顺序</li></ul> <div class="language-html extra-class"><pre class="language-html"><code><span class="token comment">&lt;!-- ComponentA.vue --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript"><span class="token comment">/* ... */</span></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css"><span class="token comment">/* ... */</span></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token comment">&lt;!-- ComponentB.vue --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript"><span class="token comment">/* ... */</span></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css"><span class="token comment">/* ... */</span></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><ul><li>在组件中使用第三方库时，不要将第三方库的配置数据放在data中</li></ul> <p>Vue会递归data并且监听每个属性， 如果你的第三方库配置数据包含一个大对象, 会导致内存使用过高</p> <blockquote><p>更多内容敬请期待</p></blockquote></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/felint/" class="prev router-link-active">
+          Lint
+        </a></span> <span class="next"><a href="/felint/vue/vuex.html">
+          vuex
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/felint/assets/js/app.4e66a2ba.js" defer></script><script src="/felint/assets/js/2.a3874d6f.js" defer></script><script src="/felint/assets/js/6.29773f94.js" defer></script>
+  </body>
+</html>
