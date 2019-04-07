@@ -101,22 +101,32 @@ commitizen init cz-conventional-changelog --save --save-exact
 
 ![cz](https://github.com/commitizen/cz-cli/raw/master/meta/screenshots/add-commit.png)
 
-- validate-commit-msg, husky
+- commitlint, husky
 
-husky允许我们在commit前运行命令，validate-commit-msg帮助我们检查commit msg
+husky允许我们在commit前运行命令，commitlint帮助我们检查commit msg
 
 安装至dev依赖
 ```bash
-npm i --save-dev validate-commit-msg husky
+# husky
+npm i --save-dev husky
+
+# commitlint
+npm install --save-dev @commitlint/config-conventional @commitlint/cli
 ```
-配置提交前钩子
+在根目录添加`commitlint.config.js`配置文件
+```js
+module.exports = {
+  extends: ['@commitlint/config-conventional']
+}
+```
+
+配置commit前要执行的脚本
 ```json
 // package.json
 {
   "husky": {
     "hooks": {
-      "pre-commit": "validate-commit-msg",
-      "pre-push": "npm test", // 如果没有test则省略该配置项
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
 }
@@ -130,12 +140,12 @@ npm i --save-dev validate-commit-msg husky
 ```bash
 npm i --save-dev standard-version
 ```
-添加 `npm run release`脚本
+添加 `npm run release`脚本，并且在push前执行它
 ``` json
 // package.json
 {
   "scripts": {
-    "release": "standard-version"
+    "release": "standard-version -p angular -i CHANGELOG.md -w"
   }
 }
 ```
@@ -162,7 +172,7 @@ vscode配置片段（其他ide请自行百度）
 
 所有类型的项目必须配置eslint，不然当你发布正式环境时，CI (自动部署工具)会拒绝部署。
 
-> 目前具体安装配置方法请查看[共享配置仓库](https://github.com/mofengkeji/eslint-config-mofengkeji)
+> 具体安装配置方法请查看[共享配置仓库](https://github.com/mofengkeji/eslint-config-mofengkeji)
 
 配置`npm run lint`脚本，可以批量格式化代码
 ```json
@@ -170,6 +180,18 @@ vscode配置片段（其他ide请自行百度）
 "scripts": {
     "lint": "eslint --fix --ext .js,.vue src",
 },
+```
+
+重新配置husky
+```json
+// package.json
+{
+  "husky": {
+    "hooks": {
+      "commit-msg": "npm run lint && commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
 ```
 
 
